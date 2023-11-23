@@ -1,7 +1,5 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { TamaguiProvider } from "tamagui";
-import tamaguiConfig from "../../tamagui.config";
 
 export type ButtonProps = {
     onPress: () => void;
@@ -31,15 +29,13 @@ const styles = StyleSheet.create({
 });
 
 export const MyButton = ({ text, onPress, color, textColor }: ButtonProps) => (
-    <TamaguiProvider config={tamaguiConfig}>
-        <View style={styles.buttonContainer}>
-            <TouchableOpacity
-                style={[styles.button, !!color && { backgroundColor: color }]}
-                onPress={onPress}
-                activeOpacity={0.8}
-            >
-                <Text style={[styles.buttonText, !!textColor && { color: textColor }]}>{text}</Text>
-            </TouchableOpacity>
-        </View>
-    </TamaguiProvider>
+    <View>
+        <TouchableOpacity
+            style={[styles.button, !!color && { backgroundColor: color }]}
+            onPress={onPress}
+            activeOpacity={0.8}
+        >
+            <Text style={[styles.buttonText, !!textColor && { color: textColor }]}>{text}</Text>
+        </TouchableOpacity>
+    </View>
 );
